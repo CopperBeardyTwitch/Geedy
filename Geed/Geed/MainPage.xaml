@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Geed.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Geed">
+    <ContentPage.Content>
+        <Grid Padding="10" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="225" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+            <Button
+                Grid.Row="4"
+                Margin="0,50,0,0"
+                BackgroundColor="{StaticResource PrimaryDark}"
+                Command="{Binding SignInCommand}"
+                HorizontalOptions="FillAndExpand"
+                IsEnabled="{Binding IsNotBusy}"
+                IsVisible="{Binding NotLoggedIn}"
+                Text="Sign In or Up"
+                TextColor="White"
+                VerticalOptions="Start" />
+
+
+
+        </Grid>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding SignOutCommand}"
+            IsEnabled="{Binding LoggedIn}"
+            Text="Sign Out" />
+    </ContentPage.ToolbarItems>
+</ContentPage>
